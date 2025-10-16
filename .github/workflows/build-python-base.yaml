@@ -46,11 +46,13 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          context: .
+          context: ./python3/
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           build-args: |
             PYTHON_VERSION=${{ matrix.version }}
             BASE_DEBIAN_VERSION=12
             BASE_DEBIAN_CODENAME=bookworm
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.version }}
+            ${{ env.REGISTRY }}/${{ github.repository }}/python:${{ matrix.version }}
