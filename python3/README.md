@@ -5,10 +5,16 @@ The entrypoint is the Python binary, so you’ll need to set your own entrypoint
 ### Example
 
 ```dockerfile
-FROM ghcr.io/your-org/python-distroless:3.13
+FROM ghcr.io/ntse/distroless/python:3.10
 
 WORKDIR /app
 COPY . .
 
 ENTRYPOINT ["python", "main.py"]
 ```
+
+### Images available
+
+| Image | Tags |
+|-------|------|
+| ghcr.io/ntse/distroless/python | 3.10, 3.11, 3.12, 3.12 |

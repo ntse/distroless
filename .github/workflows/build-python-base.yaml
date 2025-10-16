@@ -7,6 +7,8 @@ on:
     paths:
       - python3/**
   workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 1"
 
 env:
   REGISTRY: ghcr.io
