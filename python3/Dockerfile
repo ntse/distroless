@@ -17,7 +17,9 @@ LABEL org.opencontainers.image.title="Distroless Python Base" \
 COPY --from=python-builder /usr/local/lib/ /usr/local/lib/
 COPY --from=python-builder /usr/local/bin/python /usr/local/bin/python
 COPY --from=python-builder /etc/ld.so.cache /etc/ld.so.cache
-COPY --from=python-builder /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/
+
+COPY --from=python-builder /lib/x86_64-linux-gn*/libz.so.* /lib/x86_64-linux-gnu/libz.so.1
+COPY --from=python-builder /lib/aarch64-linux-gn*/libz.so.* /lib/aarch64-linux-gnu/libz.so.1
 
 COPY --from=python-builder /deps/ /
 
